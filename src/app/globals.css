@@ -1,13 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* =====================================================
    MI AGENDA MÁGICA — Design System & Full Styles
    ===================================================== */
 
 /* ──────────────────── FONTS & TOKENS ──────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
-
 :root {
   /* Palette */
   --pink: #FF9FC3;
