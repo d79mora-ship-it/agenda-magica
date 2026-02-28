@@ -40,7 +40,7 @@ export default function PortadaPage() {
       setLoading(false)
     }
     loadProfile()
-  }, [])
+  }, [supabase])
 
   const handleSave = async (updates: Partial<typeof profile>) => {
     const newProfile = { ...profile, ...updates }
@@ -169,6 +169,7 @@ export default function PortadaPage() {
               <p>Toca para añadir tu foto o dibujo</p>
             </div>
           ) : (
+            // eslint-disable-next-line @next/next/no-img-element
             <img src={profile.avatar_url} className="avatar-img mx-auto" alt="Mi foto" />
           )}
           <input type="file" accept="image/*" className="hidden" onChange={handleAvatar} />

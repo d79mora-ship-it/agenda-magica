@@ -24,14 +24,14 @@ export default function CalendarioPage() {
             const { data } = await supabase.from('events').select('*').eq('user_id', user.id)
             if (data) {
                 const loaded: Record<string, CalEvent> = {}
-                data.forEach((row: any) => {
+                data.forEach((row: { id: string; event_type: string; note: string; date: string }) => {
                     loaded[row.date] = { id: row.id, type: row.event_type, note: row.note }
                 })
                 setEvents(loaded)
             }
         }
         loadEvents()
-    }, [])
+    }, [supabase])
 
     const { year, month } = { year: currentDate.getFullYear(), month: currentDate.getMonth() }
     const firstDay = new Date(year, month, 1)

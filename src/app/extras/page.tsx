@@ -36,7 +36,7 @@ export default function ExtrasPage() {
             if (resW.data) setWords(resW.data)
         }
         loadData()
-    }, [])
+    }, [supabase])
 
     // Books Actions
     const addBook = async () => {

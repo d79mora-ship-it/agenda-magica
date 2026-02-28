@@ -28,7 +28,7 @@ export default function HabitosPage() {
                     water: new Array(31).fill(false),
                     sleep: new Array(31).fill(false)
                 }
-                data.forEach((row: any) => {
+                data.forEach((row: { habit_type: string; days_completed: boolean[] }) => {
                     if (row.habit_type in loaded) {
                         loaded[row.habit_type as keyof typeof loaded] = row.days_completed
                     }
@@ -44,7 +44,7 @@ export default function HabitosPage() {
             }
         }
         loadHabits()
-    }, [])
+    }, [supabase, currentMonthDate])
 
     const toggleHabit = async (type: 'reading' | 'water' | 'sleep', dayIndex: number) => {
         const newArr = [...habits[type]]

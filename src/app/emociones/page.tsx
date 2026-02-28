@@ -19,12 +19,12 @@ export default function EmocionesPage() {
             const { data } = await supabase.from('moods').select('*').eq('user_id', user.id)
             if (data) {
                 const loaded: Record<string, string> = {}
-                data.forEach((row: any) => { loaded[row.date] = row.mood })
+                data.forEach((row: { date: string, mood: string }) => { loaded[row.date] = row.mood })
                 setMoods(loaded)
             }
         }
         loadMoods()
-    }, [])
+    }, [supabase])
 
     const { year, month } = { year: currentDate.getFullYear(), month: currentDate.getMonth() }
     const firstDay = new Date(year, month, 1)

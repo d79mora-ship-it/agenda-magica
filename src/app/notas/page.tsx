@@ -20,7 +20,7 @@ export default function NotasPage() {
             if (data) setNotes(data)
         }
         loadNotes()
-    }, [])
+    }, [supabase])
 
     const handleAddNote = async () => {
         if (!newNote.subject || !newNote.date) return

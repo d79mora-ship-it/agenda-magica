@@ -17,14 +17,14 @@ export default function HorarioPage() {
             const { data } = await supabase.from('schedule').select('*').eq('user_id', user.id)
             if (data) {
                 const loaded: Record<string, number> = {}
-                data.forEach((row: any) => {
+                data.forEach((row: { time_slot_index: number; day_index: number; subject_index: number }) => {
                     loaded[`${row.time_slot_index}-${row.day_index}`] = row.subject_index
                 })
                 setSchedule(loaded)
             }
         }
         loadSchedule()
-    }, [])
+    }, [supabase])
 
     const handleCellClick = async (timeIdx: number, dayIdx: number) => {
         const key = `${timeIdx}-${dayIdx}`

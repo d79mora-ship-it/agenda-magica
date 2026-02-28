@@ -43,9 +43,9 @@ export default function SemanaPage() {
             }
         }
         loadWeek()
-    }, [weekOffset, weekKey])
+    }, [weekOffset, weekKey, supabase])
 
-    const saveToDb = async (upd: any) => {
+    const saveToDb = async (upd: Record<string, unknown>) => {
         const { data: { user } } = await supabase.auth.getUser()
         if (!user) return
         const payload = {
